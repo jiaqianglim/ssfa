@@ -1,26 +1,38 @@
 package nus.ssfa.model;
 
+import java.math.BigDecimal;
+
 import jakarta.json.JsonObject;
 
 public class Article {
     private String id;
-    private String published_on;
+    private int published_on;
     private String title;
     private String url;
     private String imageurl;
     private String body;
     private String tags;
     private String categories;
-    private boolean save;
+    private boolean save=false;
 
     public Article(){
-        this.save = false;
+    }
+
+    public Article(String id, int published_on, String title, String url, String imageurl, String body, String tags, String categories){
+        this.id = id;
+        this.published_on = published_on;
+        this.title = title;
+        this.url = url;
+        this.imageurl = imageurl;
+        this.body = body;
+        this.tags = tags;
+        this.categories = categories;
     }
 
     public static Article createArticleFromJson(JsonObject o){
         Article article = new Article();
         article.id = o.getJsonString("id").toString();
-        article.published_on = o.getJsonString("published_on").toString();
+        article.published_on = o.getJsonNumber("published_on").bigDecimalValue().intValue();
         article.title = o.getJsonString("title").toString();
         article.url = o.getJsonString("url").toString();
         article.imageurl = o.getJsonString("imageurl").toString();
@@ -40,12 +52,12 @@ public class Article {
     }
 
 
-    public String getPublished_on() {
+    public int getPublished_on() {
         return published_on;
     }
 
 
-    public void setPublished_on(String published_on) {
+    public void setPublished_on(int published_on) {
         this.published_on = published_on;
     }
 

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
@@ -33,7 +34,8 @@ public class RedisRepository {
     @Value("${spring.redis.database}")
     private String redisDatabase;
 
-    @Bean(name = "games")
+    @Bean
+    @Primary
     @Scope("singleton")
     public RedisTemplate<String, Article> redisTemplate() {
         final RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
