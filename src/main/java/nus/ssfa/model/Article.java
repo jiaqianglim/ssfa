@@ -1,9 +1,5 @@
 package nus.ssfa.model;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Date;
-
 import jakarta.json.JsonObject;
 
 public class Article {
@@ -15,6 +11,11 @@ public class Article {
     private String body;
     private String tags;
     private String categories;
+    private boolean save;
+
+    public Article(){
+        this.save = false;
+    }
 
     public static Article createArticleFromJson(JsonObject o){
         Article article = new Article();
@@ -107,4 +108,14 @@ public class Article {
     public void setCategories(String categories) {
         this.categories = categories;
     }
+
+    public boolean isSave() {
+        return save;
+    }
+
+    public void setSave(boolean save) {
+        this.save = save;
+    }
+
+    
 }

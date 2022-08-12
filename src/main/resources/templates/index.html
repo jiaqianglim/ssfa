@@ -11,9 +11,27 @@
 </head>
 <body>
     <h1>Crypto News of the Day</h1>
-    <form action="#" th:action="@{/articles}">
+    <form action="#" th:action="@{/articles}" method="POST">
         <input type="submit" value="Save">
-        
+        <div class="card" th:each="article :${news}">
+            <h5 class="card-header" th:text="${article.id}">Featured</h5>
+            <div class="card-body">
+              <h1 class="card-title" th:text="${article.title}">Title</h1>
+              <p class="card-text">
+                <h6>Id: <span th:text="${article.id}"></span></h6><br>
+                <h6>Published on: <span th:text="${article.published_on}"></span></h6><br>
+                <h6><a th:href="@{${article.url}}">Link</a></h6><br>
+                <img src="${article.imageurl}">
+                <h3><span th:text="${article.body}"></span></h3><br>
+                <h3><span th:text="${article.tags}"></span></h3><br>
+                <h3><span th:text="${article.categories}"></h3>
+                <label for ></label>
+                <input type="checkbox" value="true">
+              </p>
+              <label for=""></label>
+              <input type="checkbox">
+            </div>
+          </div>
     </form>
 </body>
 </html>

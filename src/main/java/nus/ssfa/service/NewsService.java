@@ -30,7 +30,7 @@ public class NewsService {
     }
 
     public Article findById(String Id){
-        Article newsArticle = (Article)template.opsForValue().get(Id); //TODO
-        return newsArticle;
+        Article article = (Article)template.opsForValue().get(Id); //TODO
+        return article;
     }
 }

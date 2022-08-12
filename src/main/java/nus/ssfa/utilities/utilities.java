@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 
 import jakarta.json.Json;
@@ -24,10 +25,13 @@ public class utilities {
     
     public List<Article> getListofArticles(){
 
+        final String apikey = "0d4421fe3733298386f01ba6def48d8a1bbebadb0baff5cc1884449200632f54";
+
         String websiteurl = "min-api.cryptocompare.com/data/v2/news/";
         
         String url = UriComponentsBuilder
         .fromUriString(websiteurl)
+        .queryParam("api_key", apikey)
         .toUriString();
 
         RequestEntity req = RequestEntity.get(url).accept(MediaType.APPLICATION_JSON).build();

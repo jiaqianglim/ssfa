@@ -40,7 +40,7 @@ public class RedisRepository {
         config.setHostName(redisHost);
         config.setPort(redisPort.get());
         config.setPassword(redisPassword);
-        Jackson2JsonRedisSerializer jackson2JsonJsonSerializer = new Jackson2JsonRedisSerializer(Article.class);
+        Jackson2JsonRedisSerializer<Article> jackson2JsonJsonSerializer = new Jackson2JsonRedisSerializer(Article.class);
 
         final JedisClientConfiguration jedisClient = JedisClientConfiguration.builder().build();
         final JedisConnectionFactory jedisFac = new JedisConnectionFactory(config, jedisClient);
