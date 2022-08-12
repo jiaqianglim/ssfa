@@ -26,14 +26,11 @@ public class NewsService {
         return news;
     }
 
-    public void saveArticles(List<Article> news){
-        for(Article article: news){
-            template.opsForValue().set(article.getId(), article.toString());
-            Article result = (Article)template.opsForValue().get(article.getId());
-            if(result!= null)
-                logger.info("%s failed to save", article.getId());
-        }
-
+    public void saveArticle(Article article){
+        template.opsForValue().set(article.getId(), article.toString());
+        Article result = (Article)template.opsForValue().get(article.getId());
+        if(result!= null)
+            logger.info("%s failed to save", article.getId());
     }
 
     public Article findById(String Id){

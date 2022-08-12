@@ -9,16 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
-    <script>
-      $( document ).ready(function() {
-        var listofarticle = [];
-      });
-    </script>
 </head>
 <body>
     <h1>Crypto News of the Day</h1>
     <form action="#" th:action="@{/articles}" method="POST" th:object="article">
-        <input type="submit" value="Save">
+        <input type="submit" value="Save" onclick="send()">
         <div class="card" th:each="article :${news}">
             <h5 class="card-header">ID: <span th:text="${article.id}"></span></h5>
             <div class="card-body">
@@ -31,7 +26,14 @@
                 <h3>Tags: <span th:text="${article.tags}"></span></h3><br>
                 <h3>Categories: <span th:text="${article.categories}"></h3>
                 <label for="article.save">Save Article: </label>
-                <input type="checkbox">
+                <input th:value="*{published_on}" th:field="*{published_on}" hidden>
+                <input th:value="*{title}" th:field="*{title}" hidden>
+                <input th:value="*{url}" th:field="*{url}" hidden>
+                <input th:value="*{imageurl}" th:field="*{imageurl}" hidden>
+                <input th:value="*{body}" th:field="*{body}" hidden>
+                <input th:value="*{tags}" th:field="*{tags}" hidden>
+                <input th:value="*{categories}" th:field="*{categories}" hidden>
+                <input type="checkbox" th:field="${article.save}">
               </p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 package nus.ssfa.config;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -28,8 +29,8 @@ public class RedisRepository {
     @Value("${spring.redis.port}")
     private Optional<Integer> redisPort;
 
-    @Value("${spring.redis.password}")
-    private String redisPassword;
+    Map<String, String> env = System.getenv();
+    private String redisPassword = env.get("spring.redis.password");
 
     @Value("${spring.redis.database}")
     private String redisDatabase;

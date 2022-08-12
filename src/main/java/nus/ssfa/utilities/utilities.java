@@ -1,11 +1,8 @@
 package nus.ssfa.utilities;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -56,15 +53,6 @@ public class utilities {
             e.printStackTrace();
         }
 
-        return news;
-    }
-
-    public List<Article> getListOfArticlesLocal(){
-        Article article1 = new Article("27933722", 1660256682, "Taiwan Turns to Ethereum IPFS Tech to Thwart Chinese Cyberattacks", "https://decrypt.co/107293/taiwan-turns-to-ipfs-tech-to-thwart-cyberattacks-from-china", "https://images.cryptocompare.com/news/default/decrypt.png", "As tensions with China heat up, Taipei officials leverage decentralized publishing and storage to stay online.", "ETH|Technology","Asia|ETH|Technology");
-        Article article2 = new Article("27933722", 1660256682, "Taiwan Turns to Ethereum IPFS Tech to Thwart Chinese Cyberattacks", "https://decrypt.co/107293/taiwan-turns-to-ipfs-tech-to-thwart-cyberattacks-from-china", "https://images.cryptocompare.com/news/default/decrypt.png", "As tensions with China heat up, Taipei officials leverage decentralized publishing and storage to stay online.", "ETH|Technology","Asia|ETH|Technology");
-        List<Article> news = new LinkedList<>();
-        news.add(article1);
-        news.add(article2);
         return news;
     }
 }

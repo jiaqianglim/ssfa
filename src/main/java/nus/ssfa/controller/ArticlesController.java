@@ -19,9 +19,12 @@ public class ArticlesController {
     
     @Autowired NewsService newsService;
 
-    @PostMapping(consumes = "", produces = "text/html")
+    @PostMapping(produces = "text/html")
     public String returnNews(@RequestBody List<Article> news, Model model){
-        newsService.saveArticles(news);
+        for(Article article:news){
+            if(article.isSave())
+                newsService.saveArticle(article);
+        }
         news = newsService.getAll();
         model.addAttribute("news", news);
         return "index";
