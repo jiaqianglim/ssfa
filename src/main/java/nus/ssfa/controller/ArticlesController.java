@@ -19,9 +19,10 @@ public class ArticlesController {
     
     @Autowired NewsService newsService;
 
-    @PostMapping(consumes = "application/x-www-form-urlencoded", produces = "text/html")
+    @PostMapping(consumes = "", produces = "text/html")
     public String returnNews(@RequestBody List<Article> news, Model model){
-
+        newsService.saveArticles(news);
+        news = newsService.getAll();
         model.addAttribute("news", news);
         return "index";
     }
