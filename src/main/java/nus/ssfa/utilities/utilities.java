@@ -30,10 +30,6 @@ public class utilities {
 
         Map<String, String> env = System.getenv();
         String api_key = env.get("crypto_api");
-        if(api_key==null){
-            api_key = "0d4421fe3733298386f01ba6def48d8a1bbebadb0baff5cc1884449200632f54";
-        }
-
         String websiteurl = "min-api.cryptocompare.com/data/v2/news/";
         
         String url = UriComponentsBuilder

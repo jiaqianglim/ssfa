@@ -22,7 +22,7 @@ public class NewsService {
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
 
     public List<Article> getArticles(){
-        List<Article> news = utilities.getListOfArticlesLocal();
+        List<Article> news = utilities.getListofArticles();
         return news;
     }
 
